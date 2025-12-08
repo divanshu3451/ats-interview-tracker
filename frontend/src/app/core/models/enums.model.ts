@@ -1,0 +1,24 @@
+export enum ApplicationStatus {
+  SAVED = 'SAVED',
+  APPLIED = 'APPLIED',
+  SCREENING = 'SCREENING',
+  INTERVIEWING = 'INTERVIEWING',
+  OFFER = 'OFFER',
+  REJECTED = 'REJECTED'
+}
+
+export enum InterviewStatus {
+  SCHEDULED = 'SCHEDULED',
+  COMPLETED = 'COMPLETED',
+  CANCELLED = 'CANCELLED',
+  NO_SHOW = 'NO_SHOW'
+}
+
+export enum InterviewType {
+  PHONE_SCREEN = 'PHONE_SCREEN',
+  VIDEO = 'VIDEO',
+  ONSITE = 'ONSITE',
+  TECHNICAL = 'TECHNICAL',
+  BEHAVIORAL = 'BEHAVIORAL',
+  FINAL = 'FINAL'
+}
