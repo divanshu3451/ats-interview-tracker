@@ -1,0 +1,73 @@
+<div class="dashboard">
+  <h1>Dashboard</h1>
+
+  @if (isLoading()) {
+    <div class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+
+  @if (metrics() && !isLoading()) {
+    <div class="metrics-grid">
+      <mat-card>
+        <mat-card-header>
+          <mat-icon>assignment</mat-icon>
+          <mat-card-title>Total</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ metrics()!.totalApplications }}</h2>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-icon>send</mat-icon>
+          <mat-card-title>Applied</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ metrics()!.appliedCount }}</h2>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-icon>event</mat-icon>
+          <mat-card-title>Interviewing</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ metrics()!.interviewingCount }}</h2>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-icon>celebration</mat-icon>
+          <mat-card-title>Offers</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ metrics()!.offerCount }}</h2>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="wide">
+        <mat-card-header>
+          <mat-icon>trending_up</mat-icon>
+          <mat-card-title>Conversion Rate</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ conversionRateFormatted() }}</h2>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="wide">
+        <mat-card-header>
+          <mat-icon>schedule</mat-icon>
+          <mat-card-title>Avg Days to Interview</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ metrics()!.averageDaysToInterview | number:'1.0-1' }} days</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
