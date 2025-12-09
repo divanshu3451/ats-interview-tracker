@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Metrics } from '../models/metrics.model';
+import { ApiResponse } from '../models/api-response.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MetricsService {
+  private apiUrl = 'http://localhost:8080/api/metrics';
+
+  constructor(private http: HttpClient) {}
+
+  getDashboardMetrics(): Observable<Metrics> {
+    return this.http.get<ApiResponse<Metrics>>(`${this.apiUrl}/dashboard`)
+      .pipe(map(response => response.data));
+  }
+}
