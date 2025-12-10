@@ -35,7 +35,7 @@ public interface ApplicationRepository extends JpaRepository<Application, Long>,
     @Query("SELECT a FROM Application a LEFT JOIN FETCH a.company WHERE a.id = :id")
     Application findByIdWithCompany(@Param("id") Long id);
 
-    @Query("SELECT AVG(DATEDIFF(i.scheduledDate, a.appliedDate)) " +
+    @Query("SELECT AVG(CAST(i.scheduledDate - a.appliedDate AS INTEGER)) " +
             "FROM Application a JOIN a.interviews i " +
             "WHERE a.appliedDate IS NOT NULL AND i.scheduledDate IS NOT NULL")
     Double getAverageDaysToInterview();
